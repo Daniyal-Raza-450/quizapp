@@ -6,36 +6,23 @@
     font-weight: 300;
 }
 
-.main-div{
-    width: 100vh;
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
 
-}
-.inner-div{
-    width: ;
+.main{
+    /* width: ; */
+  width: 50%;
+margin: 100px 400px;
     background: gray;
-padding: 3em 8em;
+padding: 3em 1em;
 border-radius: 1rem;
 box-shadow: 0 1rem 1rem  -0.7rem rgba(0,0,0,0.4);
 
-}
-.inner-div h2{
-    font-size: 2rem;
-    font-weight: 300;
-    margin: 1rem 0 4rem 0;
+
 }
 
-.inner-div li{
-    font-size:1.5rem;
-    margin-top: 1rem;
-    list-style: none;
-}
 input{
     cursor: pointer;
 }
-#submit, .btn{
+.next,.submit, .btn{
     padding: 1rem 3rem;
     outline: none;
     font-size: 2rem;
@@ -46,20 +33,25 @@ input{
     text-transform: uppercase;
     color: #fff;
     background-color:rgb(40, 97, 204) ;
-    margin-top: 3rem;
+    margin-top: 1.3rem;
     border-radius: 10px;
 }
-#submit:hover{
-    background-color:rgb(52, 52, 160) ;
-    cursor: pointer;
-}
-#showsec{
-    background-color: whitesmoke;
-    margin: 3rem;
-    padding: 3rem 4rem;
-    box-shadow: 0 1rem 1rem  -0.7rem rgba(0,0,0,0.4);
 
-}
-.score{
+
+.result{
     display: none;
+}
+.wa{
+    font-size: 1.5rem;
+    margin-top:5px ;
+    background-color: gray;
+    border: none;
+}
+.que{
+    font-size: 3rem;
+}
+.question{
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

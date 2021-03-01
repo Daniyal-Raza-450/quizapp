@@ -1,109 +1,114 @@
-var obj =[
-    {
-        question : 'Q1:What is the full form of HTML',
-        a:'Hellow to My Land',
-        b:'Hey Text Msrkup Languge',
-        c:'Hyper Text Makeup Languge ',
-        d:'Hyper Text Marke legver',
-        ans:'ans1',
-    },
-    
-    
-    {question : 'Q2:What is the full form of CSS',
-    a:'Cascading Style Sheets',
-    b:'Cascading Stuyle Sheets',
-    c:'Contact Setting System ',
-    d:'Contact Setting System ',
-    ans:'ans2',
-    
+var questions =[ {
+    question: 'Q1:What is the full form of HTML',
+    option :['Hellow to My Land','Hey Text Msrkup Languge','Hyper Text Makeup Languge ','Hyper Text Marke legver',],
+    correctanswer :'Hyper Text Makeup Languge ',
 },
-{question : 'Q3:What is the full form of JS',
-a:'JavaScript',
-b:'Javasupper',
-c:'JordenShoes ',
-d:'JordenShoes ',
-ans:'ans3',
 
-}, {question : 'Q4:JavaScript is --------',
-a:'sansetive',
-b:'not',
-c:'null ',
-d:'undefind ',
-ans:'ans4',
+{ question: 'Q2:What is the full form of CSS',
+option :['Cascading Style Sheets','Cascading Stuyle Sheets','Contact Setting System ','Contact Setting System '],
+correctanswer :'Cascading Style Sheets',
+}
+,
+
+{ question: 'Q3:What is the full form of JS',
+option :['JavaScript','Javasupper','JordenShoes ','JordenShoes ',],
+correctanswer :'JavaScript',
 }
 
+,
+
+{ question:'Q4:JavaScript is --------',
+option :['sansetive','not','null ','undefind ',],
+correctanswer :'sansetive',
+}
 ]
 
-var question = document.querySelector('.question') 
-var option1 = document.querySelector('#option1')
-var option2 = document.querySelector('#option2')
-var option3 = document.querySelector('#option3')
-var option4 = document.querySelector('#option4')
-var submit = document.querySelector('#submit')
+var indexnumber =0
+var marks =0
 
-var answers= document.querySelectorAll('.answer')
-
-var showScore =document.querySelector('#showScore');
-
-
-var questionCount =0
-var score = 0;
-
-
-
-
-
-function loadQuestion(){
-
-    var questionlist =obj[questionCount];
-
-    question.innerHTML =questionlist.question;
-
-    option1.innerHTML = questionlist.a;
-    option2.innerHTML = questionlist.b;
-    option3.innerHTML = questionlist.c;
-    option4.innerHTML = questionlist.d;
-
-
+function counter(e){
+    var done = document.getElementById('done')
+    var total = document.getElementById('total')
+    done.innerHTML = e+1
+    total.innerHTML= questions.length
 
 }
-loadQuestion()
-
-
-
-function getCheckAnswer(){
-    var answer;
-    answers.forEach((curAnswer) => {
-        if(curAnswer.checked){
-            answer = curAnswer.id
-        }
-
-        
-    });
-    return answer;
-
-
+function check(e){
+    var userans = e.firstChild.nodeValue
+    var ans = questions[indexnumber].correctanswer
+    var mam = document.getElementById('marks')
+    if(ans === userans){
+        marks ++
+        mam.innerHTML = marks /4 * 100
+        console.log(marks)
+    }
 }
-submit.addEventListener('click',()=>{
-    var checkedAnswer =getCheckAnswer()
-    console.log(checkedAnswer)
 
-    if(checkedAnswer ===obj[questionCount].ans ){
+function display(){
+    var que = document.getElementById('question')
+    que.innerHTML = questions[indexnumber].question
+    var main = document.getElementById('options')
+    for(var i=0; i<questions[indexnumber].option.length; i++){
+        var div =document.createElement('div')
+        div.setAttribute('class','da')
+        div.setAttribute('class','col-md-6')
+        // var radio = document.createElement('')
+        var option = document.createElement('button')
+        option.setAttribute('class','wa')
+        option.setAttribute('onclick','check(this)')
+        var btntext = document.createTextNode(questions[indexnumber].option[i])
+        option.appendChild(btntext)
+        div.appendChild(option)
+        main.appendChild(div)
+        // main.appendChild(div)
 
-        score++
     }
-    questionCount++;
-    if(questionCount <obj.length){
-        loadQuestion()
-    }else{
-        showScore.innerHTML =
-        <h3>your scroed {score}/{obj.length} </h3>,
-        <button class ='btn' onclick='location.reload()'></button>;
+    counter(indexnumber)
+}
 
-        showScore.classList.remove('score');
+display()
+function next(){
+    document.getElementById('options').innerHTML=''
+    indexnumber++
+    display()
+var a = document.getElementById('done').innerHTML
 
 
+// document.getElementById('submit').style.display= 'none'
+// for( i=1; i<a.length; i++){
+//     if( a == +a){
+//         document.getElementById('next').style.display = 'block'
+//     }else if( a == 4){
+//         document.getElementById('next').style.display = 'none'
+//         document.getElementById('submit').style.display= 'inline-block'
+//     }else{}
+// }
 
+if(a == 4){
+    document.getElementById('next').style.display = 'none'
+
+    document.getElementById('submit').style.display= 'inline-block'
+
+}else{}
+}
+function timer(){
+    var a = document.getElementById('min')
+    var b = document.getElementById('sec')
+    b.innerHTML --
+    if(b.innerHTML == -1){
+        a.innerHTML --
+        b.innerHTML =59
+
+    }else{}
+    if( a.innerHTML == 0 && b.innerHTML == 0 ){
+        document.getElementById('main').style.display= 'none'
+        document.getElementById('result').style.display= 'inline-block'
     }
-});
+}
 
+time =setInterval(timer, 1000)
+
+function submit(){
+    document.getElementById('main').style.display ='none'
+    document.getElementById('result').style.display ='inline-block'
+}

@@ -8,48 +8,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-<div class="main-div">
-    <div class="inner-div">
-        <h2 class="question"> question come here</h2>
-        <ul>
-            <li>
-                <input type="radio" name="answer" id="ans1" class="answer">
-                <label for="ans1" id="option1"> Answer Option</label>
-            </li>
+    <div class="main" id="main">
+        <div id="sss">
+            <h2 class="que"> Question  <span id="done"></span>/ <span id="total"></span></h2>
+        </div>
+        <div >
+            <h3 id="question" class="question"></h3>
+        </div>
+        <div id="options">
+             
+        </div>
+        <div class="ne">
+            <button class="next" id="next" onclick="next()">next</button>
+            <button class="submit" id="submit" onclick="submit()">submit</button>
+            <h2 class="timer" >timer <span id="min">01</span>: <span id="sec"> 59</span></h2>
 
-            <li>
-                <input type="radio" name="answer" id="ans2" class="answer">
-                <label for="ans2" id="option2"> Answer Option</label>
-            </li>
-
-            <li>
-                <input type="radio" name="answer" id="ans3" class="answer">
-                <label for="ans3" id="option3"> Answer Option</label>
-            </li>
-
-            <li>
-                <input type="radio" name="answer" id="ans4" class="answer">
-                <label for="ans4" id="option4"> Answer Option</label>
-            </li>
-        </ul>
-        <button id="submit">Submit</button>
-
-        <div id="showScore" class="score"></div>
+        </div>
     </div>
-</div>
 
 
-
-
-
-
-
-
-
-
-
-
+        <div class="result" id="result">
+            <h1>your result is </h1>
+            <div>
+                <h3><span id="marks"></span> <span>%</span></h3>
+            </div>
+        </div>
+            
 
     <script src="app.js"></script>
 </body>
